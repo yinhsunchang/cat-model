@@ -1,0 +1,81 @@
+{
+"pageTitle": "Doctor – Cat Model Portfolio",
+"pageDescription": "A stylish portfolio site showcasing model-inspired cat portraits built with React and TypeScript.",
+
+"nav": {
+"home": "Home",
+"about": "About",
+"photos": "Photos",
+"contact": "Contact"
+},
+
+"header": {
+"greeting": "I'm",
+"name": "Doctor.",
+"subtitle": "A super model"
+},
+
+"about": {
+
+"title": "About Me",
+"texts": {
+"race": "Siberian",
+"birthday": "1st April 2022",
+"country": "France"
+},
+
+"skills": {
+  "title": "My Skills",
+  "sleep": "Jump",
+  "play": "Run",
+  "eat": "Eat"
+},
+
+"stats": {
+  "partners": "Partners",
+  "projects": "Projects Done",
+  "clients": "Happy Clients",
+  "meetings": "Meetings"
+},
+
+"price": {
+  "title": "My Price",
+  "basic": "Indoors",
+  "pro": "Outdoors",
+  "time": "per hour",
+  "sign": "Sign Up"
+},
+
+"reputation": {
+  "title": "My Reputation",
+  "temoin1": "Ephrem Matter",
+  "job1": "Photographer",
+  "text1": "It's great to work with Doctor.",
+  "temoin2": "Yin-Hsun Chang",
+  "job2": "Photographer and Web Developer",
+  "text2": "No one is better than Doctor."
+}
+
+},
+
+"photo": "My Photos",
+
+"contact": {
+
+"title": "Contact Me",
+"address": "Paris, FRANCE",
+"phone": "Phone: +33 6 25 31 97 92",
+"email": "Email: theodocteur2022@gmail.com",
+"sendMessage": "Send me a message:",
+
+"placeholder": {
+"name": "Name",
+"email": "Email",
+"subject": "Subject",
+"message": "Message"
+},
+
+"sendButton": " SEND MESSAGE"
+
+}
+}

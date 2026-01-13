@@ -1,0 +1,82 @@
+{
+  "pageTitle": "Docteur – Portfolio de chat modèle",
+  "pageDescription": "Un site portfolio élégant présentant des portraits de chats style modèle, construit avec React et TypeScript.",
+  
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "photos": "Photos",
+    "contact": "Contact"
+  },
+
+  "header": {
+    "greeting": "Je suis",
+    "name": "Docteur.",
+    "subtitle": "Un super mannequin."
+  },
+
+  "about": {
+
+    "title": "À propos de moi",
+
+    "texts": {
+      "race": "Sibérien",
+      "birthday": "1er avril 2022",
+      "country": "France"
+    },
+
+    "skills": {
+      "title": "Mes compétences",
+      "sleep": "Sauter",
+      "play": "Courir",
+      "eat": "Manger"
+    },
+
+    "stats": {
+      "partners": "Partenaires",
+      "projects": "Projets Réalisés",
+      "clients": "Clients Satisfaits",
+      "meetings": "Réunions"
+    },
+
+    "price": {
+      "title": "Mes Tarifs",
+      "basic": "À l'intérieur",
+      "pro": "À l'extérieur",
+      "time": "par heure",
+      "sign": "S'inscrire"
+    },
+
+    "reputation": {
+      "title": "Ma réputation",
+      "temoin1": "Ephrem Matter",
+      "job1": "Photographe",
+      "text1": "C'est formidable de travailler avec Docteur.",
+      "temoin2": "Yin-Hsun Chang",
+      "job2": "Photographe et Web Developer",
+      "text2": "Personne n'est meilleur que Docteur."
+    }
+    
+  },
+
+  "photo": "Mes Photos",
+
+  "contact": {
+
+    "title": "Me Contacter",
+    "address": "Paris, FRANCE",
+    "phone": "Téléphone : +33 6 25 31 97 92",
+    "email": "Email: theodocteur2022@gmail.com",
+    "sendMessage": "Envoyez-moi un message:",
+
+    "placeholder": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message"
+    },
+      
+    "sendButton": " ENVOYER"
+    
+  }
+}

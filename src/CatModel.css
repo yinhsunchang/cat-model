@@ -1,0 +1,46 @@
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+
+/* For photos */
+.row-padding img {margin-bottom: 12px}
+
+/* Set the width of the sidebar to 120px */
+.sidebar {width: 120px;background-color: #222}
+
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+mark{background:white;color:#000}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+
+.slideshow {
+  position: relative;
+  width: 992px;
+  aspect-ratio: 1280 / 853;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: fade 10s infinite;
+}
+@keyframes fade {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  30%  { opacity: 1; }
+  40%  { opacity: 1; }
+  100% { opacity: 0; }
+}
