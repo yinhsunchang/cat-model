@@ -11,13 +11,13 @@
 
   "header": {
     "greeting": "Je suis",
-    "name": "Docteur.",
+    "name": "Docteur",
     "subtitle": "Un super mannequin."
   },
 
   "about": {
 
-    "title": "À propos de moi",
+    "title": "À Propos De Moi",
 
     "texts": {
       "race": "Sibérien",
@@ -26,7 +26,7 @@
     },
 
     "skills": {
-      "title": "Mes compétences",
+      "title": "Mes Compétences",
       "sleep": "Sauter",
       "play": "Courir",
       "eat": "Manger"
@@ -48,7 +48,7 @@
     },
 
     "reputation": {
-      "title": "Ma réputation",
+      "title": "Ma Réputation",
       "temoin1": "Ephrem Matter",
       "job1": "Photographe",
       "text1": "C'est formidable de travailler avec Docteur.",
