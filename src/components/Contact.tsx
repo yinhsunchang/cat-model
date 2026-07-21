@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sendContactForm } from "../ts/contact";
 
-interface FormData {
+interface FormProps {
   name: string;
   email: string;
   subject: string;
   message: string;
 }
 
-interface Status {
+interface StatusProps {
   success: boolean;
   message: string;
 }
@@ -17,32 +17,42 @@ interface Status {
 const Contact = () => {
   const { t } = useTranslation();
 
-  const [status, setStatus] = useState<Status | null>(null);
+  const [status, setStatus] = useState<StatusProps | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [form, setForm] = useState<FormProps>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-
-    const formData: FormData = {
-      name: (form.elements.namedItem("Name") as HTMLInputElement).value,
-      email: (form.elements.namedItem("Email") as HTMLInputElement).value,
-      subject: (form.elements.namedItem("Subject") as HTMLInputElement).value,
-      message: (form.elements.namedItem("Message") as HTMLInputElement).value,
-    };
 
     setLoading(true);
     setStatus(null);
 
     try {
-      await sendContactForm(formData);
-      setStatus({ success: true, message: "Message sent successfully!" });
-      (form.elements.namedItem("Name") as HTMLInputElement).value = "";
-      (form.elements.namedItem("Email") as HTMLInputElement).value = "";
-      (form.elements.namedItem("Subject") as HTMLInputElement).value = "";
-      (form.elements.namedItem("Message") as HTMLInputElement).value = "";
-    } catch (err) {
-      setStatus({ success: false, message: "Failed to send message." });
+      await sendContactForm(form);
+      setStatus({ success: true, message: t("contact.success") });
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      setStatus({ success: false, message: t("contact.fail") });
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -52,7 +62,6 @@ const Contact = () => {
     <div className="padding-16 content text-light-grey" id="contact">
       <h2>{t("contact.title")}</h2>
       <hr style={{ width: "200px" }} className="opacity" />
-
       <div className="section">
         <p>
           <i className="fa fa-map-marker fa-fw text-white xlarge margin-right"></i>{" "}
@@ -78,36 +87,44 @@ const Contact = () => {
           <input
             className="input padding-16"
             type="text"
+            name="name"
+            value={form.name}
             placeholder={t("contact.placeholder.name")}
             required
-            name="Name"
+            onChange={handleChange}
           />
         </p>
         <p>
           <input
             className="input padding-16"
             type="email"
+            name="email"
+            value={form.email}
             placeholder={t("contact.placeholder.email")}
             required
-            name="Email"
+            onChange={handleChange}
           />
         </p>
         <p>
           <input
             className="input padding-16"
             type="text"
+            name="subject"
+            value={form.subject}
             placeholder={t("contact.placeholder.subject")}
             required
-            name="Subject"
+            onChange={handleChange}
           />
         </p>
         <p>
-          <input
+          <textarea
             className="input padding-16"
-            type="text"
+            name="message"
+            value={form.message}
+            rows={5}
             placeholder={t("contact.placeholder.message")}
             required
-            name="Message"
+            onChange={handleChange}
           />
         </p>
         <p>
@@ -123,8 +140,18 @@ const Contact = () => {
       </form>
 
       <p style={{ marginTop: "1em", color: "white" }}>
-        {loading ? "Sending..." : ""}
+        {loading && (
+          <>
+            <i
+              className="fa fa-refresh fa-spin"
+              style={{ fontSize: "18px", marginRight: "8px" }}
+            />
+            Sending...
+          </>
+        )}
       </p>
+
+      {/* Messages */}
       {status && (
         <p
           style={{
