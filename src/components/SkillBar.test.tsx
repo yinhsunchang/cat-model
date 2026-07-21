@@ -1,45 +1,85 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import SkillBar from "./SkillBar";
 
-class IntersectionObserverMock {
-  callback: IntersectionObserverCallback;
-
-  constructor(callback: IntersectionObserverCallback) {
-    this.callback = callback;
-  }
-
-  observe(element: Element) {
-    this.callback(
-      [
-        {
-          isIntersecting: true,
-          target: element,
-        } as IntersectionObserverEntry,
-      ],
-      this as unknown as IntersectionObserver
-    );
-  }
-
-  disconnect() {}
-}
-
-globalThis.IntersectionObserver =
-  IntersectionObserverMock as unknown as typeof IntersectionObserver;
-
 describe("SkillBar", () => {
+  let observerCallback: IntersectionObserverCallback;
+
+  beforeEach(() => {
+    observerCallback = vi.fn();
+
+    vi.stubGlobal(
+      "IntersectionObserver",
+      vi.fn(function (callback) {
+        observerCallback = callback;
+
+        return {
+          observe: vi.fn(),
+          unobserve: vi.fn(),
+          disconnect: vi.fn(),
+        };
+      })
+    );
+  });
+
   it("renders label", () => {
-    render(<SkillBar label="React" percentage={90} />);
+    render(<SkillBar label="React" percentage={80} />);
 
     expect(screen.getByText("React")).toBeInTheDocument();
   });
 
-  it("animates to given percentage when visible", () => {
-    render(<SkillBar label="React" percentage={90} />);
+  it("starts with 0 width before visible", () => {
+    render(<SkillBar label="React" percentage={80} />);
 
     const bar = document.querySelector(".dark-grey");
 
     expect(bar).toHaveStyle({
-      width: "90%",
+      width: "0%",
+    });
+  });
+
+  it("animates to percentage when visible", () => {
+    render(<SkillBar label="React" percentage={80} />);
+
+    const bar = document.querySelector(".dark-grey");
+
+    expect(bar).toHaveStyle({
+      width: "0%",
+    });
+
+    act(() => {
+      observerCallback(
+        [
+          {
+            isIntersecting: true,
+          } as IntersectionObserverEntry,
+        ],
+        {} as IntersectionObserver
+      );
+    });
+
+    expect(bar).toHaveStyle({
+      width: "80%",
+    });
+  });
+
+  it("does not animate when not visible", () => {
+    render(<SkillBar label="React" percentage={80} />);
+
+    const bar = document.querySelector(".dark-grey");
+
+    act(() => {
+      observerCallback(
+        [
+          {
+            isIntersecting: false,
+          } as IntersectionObserverEntry,
+        ],
+        {} as IntersectionObserver
+      );
+    });
+
+    expect(bar).toHaveStyle({
+      width: "0%",
     });
   });
 });
