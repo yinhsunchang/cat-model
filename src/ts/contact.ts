@@ -6,17 +6,21 @@ export interface ContactFormData {
 }
 
 export interface ContactResponse {
-  status: 'success' | 'error';
+  status: "success" | "error";
   message?: string;
 }
 
-export function sendContactForm(_formData: ContactFormData): Promise<ContactResponse> {
+export function sendContactForm(
+  formData: ContactFormData
+): Promise<ContactResponse> {
+  void formData;
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < 0.8) {
-        resolve({ status: 'success' });
+        resolve({ status: "success" });
       } else {
-        reject({ status: 'error', message: 'Send failed' });
+        reject({ status: "error", message: "Send failed" });
       }
     }, 1000 + Math.random() * 1000);
   });
