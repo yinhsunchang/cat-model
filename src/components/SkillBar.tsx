@@ -6,8 +6,7 @@ interface SkillBarProps {
 }
 
 function SkillBar({ label, percentage }: SkillBarProps) {
-  const [width, setWidth] = useState(0);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -20,16 +19,14 @@ function SkillBar({ label, percentage }: SkillBarProps) {
       { threshold: 0.3 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    const element = ref.current;
+    if (element) observer.observe(element);
 
-    return () => observer.disconnect();
+    return () => {
+      if (element) observer.unobserve(element);
+      observer.disconnect();
+    };
   }, []);
-
-  useEffect(() => {
-    if (visible) {
-      setWidth(percentage);
-    }
-  }, [visible, percentage]);
 
   return (
     <div ref={ref}>
@@ -40,7 +37,7 @@ function SkillBar({ label, percentage }: SkillBarProps) {
           className="dark-grey"
           style={{
             height: "28px",
-            width: `${width}%`,
+            width: visible ? `${percentage}%` : "0%",
             transition: "width 3s ease-in-out",
           }}
         />
