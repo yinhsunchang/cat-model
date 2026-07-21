@@ -24,7 +24,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install --include=optional
+          npm ci
+          npm install @rollup/rollup-linux-x64-gnu --save-dev
 
       - name: Run ESLint
         run: npm run lint
