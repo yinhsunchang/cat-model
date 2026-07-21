@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import photo from "../ts/photo.ts";
+import photo from "../services/photo.ts";
 
 const Portfolio = () => {
   const { t } = useTranslation();
