@@ -1,10 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import PriceCard from "./PriceCard";
 
-// 測試時通常不用真的載入 i18next，可以直接 mock：
-// 如此 t("about.price.title")
-// 會回傳 about.price.title
-// 方便測試。
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
