@@ -22,9 +22,7 @@ const About = () => {
       <SkillBar label={t("about.skills.sleep")} percentage={95} />
       <SkillBar label={t("about.skills.play")} percentage={85} />
       <SkillBar label={t("about.skills.eat")} percentage={80} />
-
       <br />
-
       <StatCard />
       <PriceCard />
       <TestimonialCard />
