@@ -2,8 +2,7 @@ import { useTranslation } from "react-i18next";
 import SkillBar from "./SkillBar.tsx";
 import StatCard from "./StatCard.tsx";
 import PriceCard from "./PriceCard.tsx";
-import ephrem from "../assets/ephrem255.jpg";
-import yinhsun from "../assets/yinhsun255.jpg";
+import TestimonialCard from "./TestimonialCard.tsx";
 
 const About = () => {
   const { t } = useTranslation();
@@ -28,39 +27,7 @@ const About = () => {
 
       <StatCard />
       <PriceCard />
-
-      <h3 className="padding-16 text-light-grey">
-        {t("about.reputation.title")}
-      </h3>
-      <img
-        src={ephrem}
-        alt="Avatar"
-        className="left circle margin-right"
-        style={{ width: "80px" }}
-      />
-      <p>
-        <span className="large margin-right">
-          {t("about.reputation.temoin1")}
-        </span>
-        {t("about.reputation.job1")}
-      </p>
-      <p>{t("about.reputation.text1")}</p>
-
-      <br />
-
-      <img
-        src={yinhsun}
-        alt="Avatar"
-        className="left circle margin-right"
-        style={{ width: "80px" }}
-      />
-      <p>
-        <span className="large margin-right">
-          {t("about.reputation.temoin2")}
-        </span>
-        {t("about.reputation.job2")}
-      </p>
-      <p>{t("about.reputation.text2")}</p>
+      <TestimonialCard />
     </div>
   );
 };
