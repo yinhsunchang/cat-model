@@ -1,0 +1,56 @@
+import { useTranslation } from "react-i18next";
+import CountUp from "react-countup";
+
+interface StatCardProps {
+  value: number;
+  label: string;
+}
+
+function StatItem({ value, label }: StatCardProps) {
+  return (
+    <div className="quarter section">
+      <span className="xlarge">
+        <CountUp end={value} duration={8} autoAnimate autoAnimateDelay={500} />+
+      </span>
+      <br />
+      {label}
+    </div>
+  );
+}
+
+function StatCard() {
+  const { t } = useTranslation();
+
+  const stats = [
+    {
+      id: 0,
+      value: 8,
+      label: t("about.stats.partners"),
+    },
+    {
+      id: 1,
+      value: 33,
+      label: t("about.stats.projects"),
+    },
+    {
+      id: 2,
+      value: 19,
+      label: t("about.stats.clients"),
+    },
+    {
+      id: 3,
+      value: 23,
+      label: t("about.stats.meetings"),
+    },
+  ];
+
+  return (
+    <div className="row center padding-16 section light-grey">
+      {stats.map((stat) => (
+        <StatItem key={stat.id} value={stat.value} label={stat.label} />
+      ))}
+    </div>
+  );
+}
+
+export default StatCard;
