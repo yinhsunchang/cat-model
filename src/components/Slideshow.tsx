@@ -1,24 +1,21 @@
-import '../CatModel.css'
-import front from '../assets/front.jpg';
-import back from '../assets/back.jpg';
+import "../CatModel.css";
+import { SLIDES, ANIMATION_INTERVAL } from "../services/slides";
 
 function Slideshow() {
-  const images: string[] = [front,back];
-
   return (
     <div className="slideshow image">
-      {images.map((src, index) => (
+      {SLIDES.map((slide, index) => (
         <div
-          key={src}
+          key={slide.id}
           className="slide"
           style={{
-            backgroundImage: `url(${src})`,
-            animationDelay: `${index * 5}s`,
+            backgroundImage: `url(${slide.src})`,
+            animationDelay: `${index * ANIMATION_INTERVAL}s`,
           }}
         />
       ))}
     </div>
-  )
+  );
 }
 
-export default Slideshow
+export default Slideshow;
