@@ -40,10 +40,10 @@
 
     "price": {
       "title": "Mes Tarifs",
-      "basic": "À l'intérieur",
-      "pro": "À l'extérieur",
-      "time": "par heure",
-      "sign": "S'inscrire"
+      "plan1": "À l'intérieur",
+      "plan2": "À l'extérieur",
+      "unit": "par heure",
+      "reserve": "Réserver"
     },
 
     "reputation": {

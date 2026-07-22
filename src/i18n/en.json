@@ -40,10 +40,10 @@
 
     "price": {
       "title": "My Price",
-      "basic": "Indoors",
-      "pro": "Outdoors",
-      "time": "per hour",
-      "sign": "Sign Up"
+      "plan1": "Indoors",
+      "plan2": "Outdoors",
+      "unit": "per hour",
+      "reserve": "Reserve"
     },
 
     "reputation": {
