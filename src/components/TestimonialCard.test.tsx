@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import TestimonialCard from "./TestimonialCard";
+import type { PropsWithChildren } from "react";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
@@ -8,8 +9,12 @@ vi.mock("react-i18next", () => ({
 }));
 
 vi.mock("swiper/react", () => ({
-  Swiper: ({ children }: any) => <div data-testid="swiper">{children}</div>,
-  SwiperSlide: ({ children }: any) => <div data-testid="slide">{children}</div>,
+  Swiper: ({ children }: PropsWithChildren) => (
+    <div data-testid="swiper">{children}</div>
+  ),
+  SwiperSlide: ({ children }: PropsWithChildren) => (
+    <div data-testid="slide">{children}</div>
+  ),
 }));
 
 vi.mock("swiper/modules", () => ({
