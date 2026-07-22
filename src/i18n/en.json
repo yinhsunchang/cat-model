@@ -48,12 +48,15 @@
 
     "reputation": {
       "title": "My Reputation",
-      "temoin1": "Ephrem Matter",
+      "testimonial1": "Alexis",
       "job1": "Photographer",
       "text1": "It's great to work with Doctor.",
-      "temoin2": "Yin-Hsun Chang",
-      "job2": "Photographer and Web Developer",
-      "text2": "No one is better than Doctor."
+      "testimonial2": "Ephrem Matter",
+      "job2": "Photographer",
+      "text2": "No one is better than Doctor.",
+      "testimonial3": "Yin-Hsun Chang",
+      "job3": "Photographer and Web Developer",
+      "text3": "Doctor is just awesome."
     }
   },
 
