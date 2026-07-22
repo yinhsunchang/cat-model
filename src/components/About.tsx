@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import SkillBar from "./SkillBar.tsx";
+import StatCard from "./StatCard.tsx";
 import ephrem from "../assets/ephrem255.jpg";
 import yinhsun from "../assets/yinhsun255.jpg";
 
@@ -7,7 +8,7 @@ const About = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="content justify text-light-grey padding-16" id="about">
+    <div className="content justify text-light-grey" id="about">
       <h2>{t("about.title")}</h2>
       <hr style={{ width: "200px" }} className="opacity" />
       <i className="fa fa-certificate xxlarge"></i>
@@ -24,28 +25,7 @@ const About = () => {
 
       <br />
 
-      <div className="row center padding-16 section light-grey">
-        <div className="quarter section">
-          <span className="xlarge">8+</span>
-          <br />
-          {t("about.stats.partners")}
-        </div>
-        <div className="quarter section">
-          <span className="xlarge">23+</span>
-          <br />
-          {t("about.stats.projects")}
-        </div>
-        <div className="quarter section">
-          <span className="xlarge">19+</span>
-          <br />
-          {t("about.stats.clients")}
-        </div>
-        <div className="quarter section">
-          <span className="xlarge">33+</span>
-          <br />
-          {t("about.stats.meetings")}
-        </div>
-      </div>
+      <StatCard />
 
       <h3 className="padding-16 text-light-grey">{t("about.price.title")}</h3>
       <div className="row-padding" style={{ margin: "0 -16px" }}>
