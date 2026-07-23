@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
+import Reveal from "./Reveal";
 import photos from "../services/photos.ts";
 
 const Portfolio = () => {
   const { t } = useTranslation();
 
-  // put the images evenly into two columns
   const half = Math.ceil(photos.length / 2);
   const left = photos.slice(0, half);
   const right = photos.slice(half);
@@ -17,27 +17,31 @@ const Portfolio = () => {
       <div className="row-padding" style={{ margin: "0 -16px" }}>
         <div className="half">
           {left.map((src) => (
-            <img
-              className="zoom"
-              key={src}
-              src={src}
-              style={{ width: "100%" }}
-              alt=""
-              loading="lazy"
-            />
+            <Reveal>
+              <img
+                className="zoom"
+                key={src}
+                src={src}
+                style={{ width: "100%" }}
+                alt=""
+                loading="lazy"
+              />
+            </Reveal>
           ))}
         </div>
 
         <div className="half">
           {right.map((src) => (
-            <img
-              className="zoom"
-              key={src}
-              src={src}
-              style={{ width: "100%" }}
-              alt=""
-              loading="lazy"
-            />
+            <Reveal>
+              <img
+                className="zoom"
+                key={src}
+                src={src}
+                style={{ width: "100%" }}
+                alt=""
+                loading="lazy"
+              />
+            </Reveal>
           ))}
         </div>
       </div>
