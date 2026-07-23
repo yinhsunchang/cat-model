@@ -1,13 +1,13 @@
 import { useTranslation } from "react-i18next";
-import photo from "../services/photo.ts";
+import photos from "../services/photos.ts";
 
 const Portfolio = () => {
   const { t } = useTranslation();
 
   // put the images evenly into two columns
-  const half = Math.ceil(photo.length / 2);
-  const left: string[] = photo.slice(0, half);
-  const right: string[] = photo.slice(half);
+  const half = Math.ceil(photos.length / 2);
+  const left = photos.slice(0, half);
+  const right = photos.slice(half);
 
   return (
     <div className="padding-32 content text-light-grey" id="photos">
@@ -16,10 +16,10 @@ const Portfolio = () => {
 
       <div className="row-padding" style={{ margin: "0 -16px" }}>
         <div className="half">
-          {left.map((src, idx) => (
+          {left.map((src) => (
             <img
               className="zoom"
-              key={idx}
+              key={src}
               src={src}
               style={{ width: "100%" }}
               alt=""
@@ -29,10 +29,10 @@ const Portfolio = () => {
         </div>
 
         <div className="half">
-          {right.map((src, idx) => (
+          {right.map((src) => (
             <img
               className="zoom"
-              key={idx}
+              key={src}
               src={src}
               style={{ width: "100%" }}
               alt=""
