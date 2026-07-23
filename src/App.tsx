@@ -1,13 +1,11 @@
-import CatModel from './CatModel.tsx'
+import CatModel from "./CatModel.tsx";
 
 function App() {
-
   return (
     <>
-    <CatModel />
+      <CatModel />
     </>
-  )
+  );
 }
 
-export default App
-
+export default App;
