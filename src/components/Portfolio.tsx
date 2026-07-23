@@ -17,10 +17,9 @@ const Portfolio = () => {
       <div className="row-padding" style={{ margin: "0 -16px" }}>
         <div className="half">
           {left.map((src) => (
-            <Reveal>
+            <Reveal key={src}>
               <img
                 className="zoom"
-                key={src}
                 src={src}
                 style={{ width: "100%" }}
                 alt=""
@@ -32,10 +31,9 @@ const Portfolio = () => {
 
         <div className="half">
           {right.map((src) => (
-            <Reveal>
+            <Reveal key={src}>
               <img
                 className="zoom"
-                key={src}
                 src={src}
                 style={{ width: "100%" }}
                 alt=""
