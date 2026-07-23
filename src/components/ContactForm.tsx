@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sendContactForm } from "../services/contact";
-
-interface FormProps {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+import type { FormProps } from "../types/contact";
 
 interface StatusProps {
   success: boolean;
