@@ -1,3 +1,4 @@
+import Switcher from "../components/Switcher.tsx";
 import { useTranslation } from "react-i18next";
 
 const Sidebar = () => {
@@ -21,6 +22,19 @@ const Sidebar = () => {
         <i className="fa fa-envelope xxlarge"></i>
         <p>{t("nav.contact")}</p>
       </a>
+      <div
+        className="bar-item dropdown-hover button hover-black"
+        style={{ position: "fixed", bottom: 0, left: 0, width: 120 }}
+      >
+        <i className="fa fa-globe xxlarge"></i>
+        <p>{t("nav.language")}</p>
+        <div
+          className="dropdown-content"
+          style={{ position: "relative", zIndex: 100, minWidth: 0 }}
+        >
+          <Switcher />
+        </div>
+      </div>
     </nav>
   );
 };
